@@ -1,5 +1,7 @@
-const $root = document.querySelector('#root');
-const $memoryCard = document.createElement('article');
+const $root = document.querySelector("#root");
+const $memoryCard = document.createElement("article");
+const $memoryCardActive = document.createElement("article");
+
 const $icon = `
                 <img
                 class='icon'
@@ -8,8 +10,21 @@ const $icon = `
                 />
             `;
 
+const $iconC = `
+                <img
+                class='icon'
+                src='img/icon-c.png' 
+                alt='Ícone de um livro da linguagem C++' 
+                />
+            `;
 
-$memoryCard.classList.add('memory-card');
-
+$memoryCard.classList.add("memory-card");
 $root.insertBefore($memoryCard, null);
-$memoryCard.insertAdjacentHTML('afterbegin', $icon);
+
+$memoryCardActive.classList.add("memory-card");
+$memoryCardActive.classList.add("-active");
+$root.insertBefore($memoryCardActive, null);
+
+$memoryCard.insertAdjacentHTML("afterbegin", $icon);
+
+$memoryCardActive.insertAdjacentHTML("afterbegin", $iconC);
