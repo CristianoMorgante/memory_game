@@ -1,0 +1,26 @@
+{
+  "name": "memory_game",
+  "version": "1.0.0",
+  "description": "\"Projeto Memory Game Do-Front-ao-End\"",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^5.12.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CristianoMorgante/memory_game.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "Cristiano Morgante <cristianomorgante@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CristianoMorgante/memory_game/issues"
+  },
+  "homepage": "https://github.com/CristianoMorgante/memory_game#readme"
+}
