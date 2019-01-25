@@ -9,4 +9,4 @@ const createMemoryCard = ({ nameClass, src, alt }) => `
     </article>
 `;
 
-const handleclick = () => console.log("foi");
+const handleclick = () => console.log('foi');
