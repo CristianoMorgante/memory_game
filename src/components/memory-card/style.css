@@ -32,4 +32,5 @@
 .memory-card.-active>.icon {
     position: absolute;
     transform: translateY(-12px);
+    transform: rotate()
 }

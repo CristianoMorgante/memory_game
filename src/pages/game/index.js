@@ -1,5 +1,6 @@
 const $root = document.querySelector('#root');
 const $cardsWrapper = createCardsWrapper();
+const createMemoryCard = MemoryCard();
 const $CardGueio = createMemoryCard({
   src: 'img/icon-collabcode.png',
   alt: 'Gueio mascote da CollabCode',
@@ -25,14 +26,17 @@ const $CardCabeca = createMemoryCard({
   nameClass: '-active',
 });
 
-$cardsWrapper.insertAdjacentHTML('beforeend', $CardCabeca);
+$cardsWrapper.insertAdjacentHTML('beforeend', $CardCsharp);
+$cardsWrapper.insertAdjacentHTML('beforeend', $CardPHP);
 $cardsWrapper.insertAdjacentHTML('beforeend', $CardCabeca);
 $cardsWrapper.insertAdjacentHTML('beforeend', $CardJS);
+$cardsWrapper.insertAdjacentHTML('beforeend', $CardPHP);
 $cardsWrapper.insertAdjacentHTML('beforeend', $CardJS);
-$cardsWrapper.insertAdjacentHTML('beforeend', $CardPHP);
-$cardsWrapper.insertAdjacentHTML('beforeend', $CardPHP);
 $cardsWrapper.insertAdjacentHTML('beforeend', $CardCsharp);
-$cardsWrapper.insertAdjacentHTML('beforeend', $CardCsharp);
-$cardsWrapper.insertAdjacentHTML('beforeend', $CardGueio);
+$cardsWrapper.insertAdjacentHTML('beforeend', $CardCabeca);
+
+
+
+
 
 $root.insertAdjacentElement('beforeend', $cardsWrapper);
