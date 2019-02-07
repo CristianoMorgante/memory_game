@@ -1,3 +1,4 @@
+let $cardTurned = 0;
 function createCardsWrapper() {
   const $cardsWrapper = document.createElement('section');
   $cardsWrapper.classList.add('cards-wrapper');
@@ -16,7 +17,12 @@ function createCardsWrapper() {
     margin-bottom: 10px;
   }
   `;
+
   $head.insertBefore($style, null);
+
+  $cardsWrapper.addEventListener('click', () => {
+    $cardTurned = $cardsWrapper.querySelectorAll('.memory-card.-front').length;
+  });
+
   return $cardsWrapper;
 }
-createCardsWrapper();

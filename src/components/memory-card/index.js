@@ -2,7 +2,12 @@ const MemoryCard = () => {
   const $head = document.querySelector('head');
   const $style = document.createElement('style');
   $style.textContent = `
-  .memory-card {
+  .memory-card{
+    width: 135px;
+    height: 135px;
+    position: relative;
+  }
+  .memory-card > .card {
     width: 135px;
     height: 135px;
     background-color: #f25a70;
@@ -13,16 +18,23 @@ const MemoryCard = () => {
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     position: relative;
     margin: 8px 8px;
-    transition: transform 100ms linear;
-    transform: rotatex(180deg);
+    position:absolute;
   }
 
-  .memory-card.-active {
+  .memory-card.-front .card,
+  .memory-card.-score .card{
+    display: none;
+    transition: transform 90ms linear;
+    transform: rotateX(360deg);
+  }
+
+  .memory-card .card.-active,
+  .memory-card .card.-score {
     background-color: #fff;
-    transform: rotatex(360deg);
+    display: flex;
   }
 
-  .memory-card.-active::before {
+  .memory-card .card.-active::before {
     content: "";
     width: 95px;
     height: 95px;
@@ -31,52 +43,65 @@ const MemoryCard = () => {
     position: absolute;
   }
 
-  .memory-card>.icon {
+  .memory-card .card>.icon {
     width: 100px;
     height: 100px;
-    transform: rotatex(180deg);
   }
 
-
-  .memory-card .icon.-turned{
-    display: none;
-  }
-  .memory-card.-active .icon.gueio{
-    display: none;
-  }
-  .memory-card.-active .icon.-turned{
-    display: block;
-  }
-
-  .memory-card.-active>.icon {
+  .memory-card .card.-active>.icon {
     position: absolute;
     transform: translateY(-12px);
   }
-
-
   `;
-  $head.insertBefore($style, null)
+  $head.insertBefore($style, null);
 
-  return ({ nameClass, src, alt }) => `
-    <article class='memory-card ${nameClass} '>
-        <img
-            class="icon -turned"
+  return ({ src, alt }) => `
+  <article class="memory-card" onclick= "handleClick(this)">
+    <div class='card -active' >
+      <img
+            class="icon"
             src= "${src}"
             alt="${alt}"
-            onclick="handleclick()"
             />
-            <img
-            class="icon gueio "
-            src= "img/icon-collabcode.png"
-            alt="Gueio mascote da CollabCode"
-            onclick="handleclick()"
-            />
-
-    </article>
+    </div>
+    <div class='card'>
+      <img
+          class="icon "
+          src= "img/icon-collabcode.png"
+          alt="Gueio mascote da CollabCode"
+          />
+    </div>
+  </article>
 `;
-}
-const handleclick = () => {
-  const $article = document.querySelector('article');
-  $article.classList.toggle('-active');
-  console.log($article);
+};
+let score = 0;
+const handleClick = ($card) => {
+  if (!$card.classList.contains('-front')) {
+    if ($cardTurned < 2) {
+      $card.classList.toggle('-front');
+    }
+    if ($cardTurned === 1) {
+      const $memoryCards = document.querySelectorAll('.memory-card.-front');
+      if (
+        $memoryCards[0].querySelector('.-active .icon').getAttribute('src')
+        === $memoryCards[1].querySelector('.-active .icon').getAttribute('src')
+      ) {
+        score++;
+        $memoryCards.forEach(($memoryCard) => {
+          $memoryCard.classList.add('-score');
+          $memoryCard.classList.remove('-front');
+        });
+        console.log(score);
+      } else {
+        setTimeout(() => {
+          const $frontCard = document.querySelectorAll('.memory-card.-front');
+          $frontCard.forEach(($memoryCard) => {
+            $memoryCard.classList.remove('-front');
+          });
+
+          $cardTurned = 0;
+        }, 1500);
+      }
+    }
+  }
 };
