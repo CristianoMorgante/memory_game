@@ -19,12 +19,14 @@ const MemoryCard = () => {
     position: relative;
     margin: 8px 8px;
     position:absolute;
+
+
   }
 
   .memory-card.-front .card,
   .memory-card.-score .card{
     display: none;
-    transition: transform 90ms linear;
+    transition: transform 100ms linear;
     transform: rotateX(360deg);
   }
 
@@ -41,6 +43,22 @@ const MemoryCard = () => {
     background-color: #d4d4d4;
     border-radius: 50%;
     position: absolute;
+  }
+
+  .memory-card.-score .card.-active::before{
+    background-color: rgba(0, 230, 64, .6);
+  }
+
+  .memory-card.-score > .card{
+    box-shadow: 0 3px 6px 0 rgba(0, 230, 64, .3);
+  }
+
+  .memory-card.-error .card.-active::before{
+    background-color: rgba(242, 38, 19, .9);
+  }
+
+  .memory-card.-error > .card{
+    box-shadow: 0 3px 6px 0 rgba(242, 38, 19, .3);
   }
 
   .memory-card .card>.icon {
@@ -78,25 +96,28 @@ let score = 0;
 const handleClick = ($card) => {
   if (!$card.classList.contains('-front')) {
     if ($cardTurned < 2) {
-      $card.classList.toggle('-front');
+      $card.classList.add('-front');
     }
     if ($cardTurned === 1) {
-      const $memoryCards = document.querySelectorAll('.memory-card.-front');
+      const $frontCards = document.querySelectorAll('.memory-card.-front');
       if (
-        $memoryCards[0].querySelector('.-active .icon').getAttribute('src')
-        === $memoryCards[1].querySelector('.-active .icon').getAttribute('src')
+        $frontCards[0].querySelector('.-active .icon').getAttribute('src')
+        === $frontCards[1].querySelector('.-active .icon').getAttribute('src')
       ) {
         score++;
-        $memoryCards.forEach(($memoryCard) => {
+        $frontCards.forEach(($memoryCard) => {
           $memoryCard.classList.add('-score');
           $memoryCard.classList.remove('-front');
         });
         console.log(score);
       } else {
+        $frontCards.forEach(($memoryCard) => {
+          $memoryCard.classList.add('-error');
+        });
         setTimeout(() => {
-          const $frontCard = document.querySelectorAll('.memory-card.-front');
-          $frontCard.forEach(($memoryCard) => {
+          $frontCards.forEach(($memoryCard) => {
             $memoryCard.classList.remove('-front');
+            $memoryCard.classList.remove('-error');
           });
 
           $cardTurned = 0;
