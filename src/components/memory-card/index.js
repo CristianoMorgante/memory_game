@@ -1,6 +1,6 @@
 const MemoryCard = () => {
-  const $head = document.querySelector('head');
-  const $style = document.createElement('style');
+  const $head = document.querySelector("head");
+  const $style = document.createElement("style");
   $style.textContent = `
   .memory-card{
     width: 135px;
@@ -93,31 +93,31 @@ const MemoryCard = () => {
 `;
 };
 let score = 0;
-const handleClick = ($card) => {
-  if (!$card.classList.contains('-front')) {
+const handleClick = $card => {
+  if (!$card.classList.contains("-front")) {
     if ($cardTurned < 2) {
-      $card.classList.add('-front');
+      $card.classList.add("-front");
     }
     if ($cardTurned === 1) {
-      const $frontCards = document.querySelectorAll('.memory-card.-front');
+      const $frontCards = document.querySelectorAll(".memory-card.-front");
       if (
-        $frontCards[0].querySelector('.-active .icon').getAttribute('src')
-        === $frontCards[1].querySelector('.-active .icon').getAttribute('src')
+        $frontCards[0].querySelector(".-active .icon").getAttribute("src") ===
+        $frontCards[1].querySelector(".-active .icon").getAttribute("src")
       ) {
         score++;
-        $frontCards.forEach(($memoryCard) => {
-          $memoryCard.classList.add('-score');
-          $memoryCard.classList.remove('-front');
+        $frontCards.forEach($memoryCard => {
+          $memoryCard.classList.add("-score");
+          $memoryCard.classList.remove("-front");
         });
         console.log(score);
       } else {
-        $frontCards.forEach(($memoryCard) => {
-          $memoryCard.classList.add('-error');
+        $frontCards.forEach($memoryCard => {
+          $memoryCard.classList.add("-error");
         });
         setTimeout(() => {
-          $frontCards.forEach(($memoryCard) => {
-            $memoryCard.classList.remove('-front');
-            $memoryCard.classList.remove('-error');
+          $frontCards.forEach($memoryCard => {
+            $memoryCard.classList.remove("-front");
+            $memoryCard.classList.remove("-error");
           });
 
           $cardTurned = 0;
