@@ -92,37 +92,45 @@ const MemoryCard = () => {
   </article>
 `;
 };
-let score = 0;
+
 const handleClick = $card => {
   if (!$card.classList.contains("-front")) {
-    if ($cardTurned < 2) {
-      $card.classList.add("-front");
-    }
-    if ($cardTurned === 1) {
-      const $frontCards = document.querySelectorAll(".memory-card.-front");
-      if (
-        $frontCards[0].querySelector(".-active .icon").getAttribute("src") ===
-        $frontCards[1].querySelector(".-active .icon").getAttribute("src")
-      ) {
-        score++;
-        $frontCards.forEach($memoryCard => {
-          $memoryCard.classList.add("-score");
-          $memoryCard.classList.remove("-front");
-        });
-        console.log(score);
-      } else {
-        $frontCards.forEach($memoryCard => {
-          $memoryCard.classList.add("-error");
-        });
-        setTimeout(() => {
-          $frontCards.forEach($memoryCard => {
-            $memoryCard.classList.remove("-front");
-            $memoryCard.classList.remove("-error");
-          });
-
-          $cardTurned = 0;
-        }, 1500);
-      }
-    }
+    activeMemoryCard($card);
+    checkCorrectPair();
   }
 };
+
+function activeMemoryCard($card) {
+  if (store.$cardTurned < 2) {
+    $card.classList.add("-front");
+  }
+}
+
+function checkCorrectPair() {
+  if (store.$cardTurned === 1) {
+    const $frontCards = document.querySelectorAll(".memory-card.-front");
+    if (
+      $frontCards[0].querySelector(".-active .icon").getAttribute("src") ===
+      $frontCards[1].querySelector(".-active .icon").getAttribute("src")
+    ) {
+      store.score++;
+      $frontCards.forEach($memoryCard => {
+        $memoryCard.classList.add("-score");
+        $memoryCard.classList.remove("-front");
+      });
+      console.log(store.score);
+    } else {
+      $frontCards.forEach($memoryCard => {
+        $memoryCard.classList.add("-error");
+      });
+      setTimeout(() => {
+        $frontCards.forEach($memoryCard => {
+          $memoryCard.classList.remove("-front");
+          $memoryCard.classList.remove("-error");
+        });
+
+        store.$cardTurned = 0;
+      }, 1500);
+    }
+  }
+}

@@ -1,10 +1,9 @@
-let $cardTurned = 0;
 function createCardsWrapper() {
-  const $cardsWrapper = document.createElement('section');
-  $cardsWrapper.classList.add('cards-wrapper');
+  const $cardsWrapper = document.createElement("section");
+  $cardsWrapper.classList.add("cards-wrapper");
 
-  const $head = document.querySelector('head');
-  const $style = document.createElement('style');
+  const $head = document.querySelector("head");
+  const $style = document.createElement("style");
   $style.textContent = `
   .cards-wrapper {
     display: flex;
@@ -20,8 +19,8 @@ function createCardsWrapper() {
 
   $head.insertBefore($style, null);
 
-  $cardsWrapper.addEventListener('click', () => {
-    $cardTurned = $cardsWrapper.querySelectorAll('.memory-card.-front').length;
+  $cardsWrapper.addEventListener("click", () => {
+    store.$cardTurned = $cardsWrapper.querySelectorAll(".memory-card.-front").length;
   });
 
   return $cardsWrapper;
