@@ -1,7 +1,9 @@
-const MemoryCard = () => {
-  const $head = document.querySelector("head");
-  const $style = document.createElement("style");
-  $style.textContent = `
+const MemoryCard = (function() {
+  const module = {};
+  module.create = () => {
+    const $head = document.querySelector("head");
+    const $style = document.createElement("style");
+    $style.textContent = `
   .memory-card{
     width: 135px;
     height: 135px;
@@ -71,10 +73,10 @@ const MemoryCard = () => {
     transform: translateY(-12px);
   }
   `;
-  $head.insertBefore($style, null);
+    $head.insertBefore($style, null);
 
-  return ({ src, alt }) => `
-  <article class="memory-card" onclick= "handleClick(this)">
+    return ({ src, alt }) => `
+  <article class="memory-card" onclick= "MemoryCard.handleClick(this)">
     <div class='card -active' >
       <img
             class="icon"
@@ -91,46 +93,51 @@ const MemoryCard = () => {
     </div>
   </article>
 `;
-};
+  };
 
-const handleClick = $card => {
-  if (!$card.classList.contains("-front")) {
-    activeMemoryCard($card);
-    checkCorrectPair();
-  }
-};
-
-function activeMemoryCard($card) {
-  if (store.$cardTurned < 2) {
-    $card.classList.add("-front");
-  }
-}
-
-function checkCorrectPair() {
-  if (store.$cardTurned === 1) {
-    const $frontCards = document.querySelectorAll(".memory-card.-front");
-    if (
-      $frontCards[0].querySelector(".-active .icon").getAttribute("src") ===
-      $frontCards[1].querySelector(".-active .icon").getAttribute("src")
-    ) {
-      store.score++;
-      $frontCards.forEach($memoryCard => {
-        $memoryCard.classList.add("-score");
-        $memoryCard.classList.remove("-front");
-      });
-      console.log(store.score);
-    } else {
-      $frontCards.forEach($memoryCard => {
-        $memoryCard.classList.add("-error");
-      });
-      setTimeout(() => {
-        $frontCards.forEach($memoryCard => {
-          $memoryCard.classList.remove("-front");
-          $memoryCard.classList.remove("-error");
-        });
-
-        store.$cardTurned = 0;
-      }, 1500);
+  module.handleClick = $card => {
+    if (!$card.classList.contains("-front")) {
+      module._activeMemoryCard($card);
+      module._checkCorrectPair();
     }
-  }
-}
+  };
+
+  module._activeMemoryCard = $card => {
+    if (store.$cardTurned < 2) {
+      $card.classList.add("-front");
+    }
+  };
+
+  module._checkCorrectPair = () => {
+    if (store.$cardTurned === 1) {
+      const $frontCards = document.querySelectorAll(".memory-card.-front");
+      if (
+        $frontCards[0].querySelector(".-active .icon").getAttribute("src") ===
+        $frontCards[1].querySelector(".-active .icon").getAttribute("src")
+      ) {
+        store.score++;
+        $frontCards.forEach($memoryCard => {
+          $memoryCard.classList.add("-score");
+          $memoryCard.classList.remove("-front");
+        });
+        console.log(store.score);
+      } else {
+        $frontCards.forEach($memoryCard => {
+          $memoryCard.classList.add("-error");
+        });
+        setTimeout(() => {
+          $frontCards.forEach($memoryCard => {
+            $memoryCard.classList.remove("-front");
+            $memoryCard.classList.remove("-error");
+          });
+
+          store.$cardTurned = 0;
+        }, 1500);
+      }
+    }
+  };
+  return {
+    create: module.create,
+    handleClick: module.handleClick
+  };
+})();
