@@ -1,11 +1,9 @@
 (function() {
   const $root = document.querySelector("#root");
+  const $pointBar = pointBar.create();
   const $cardsWrapper = createCardsWrapper();
   const createMemoryCard = MemoryCard.create();
-  const $CardGueio = createMemoryCard({
-    src: "img/icon-collabcode.png",
-    alt: "Gueio mascote da CollabCode"
-  });
+
   const $CardCsharp = createMemoryCard({
     src: "img/icon-c.png",
     alt: "Ícone de um livro da linguagem C++"
@@ -32,5 +30,6 @@
   $cardsWrapper.insertAdjacentHTML("beforeend", $CardCsharp);
   $cardsWrapper.insertAdjacentHTML("beforeend", $CardCabeca);
 
+  $root.insertAdjacentHTML("afterbegin", $pointBar);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
 })();
