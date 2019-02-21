@@ -13,7 +13,7 @@ const gameButton = (function() {
           position: absolute;
           bottom: 5vh;
           left: 50%;
-          transform: translatex(-50%);
+          transform: translateX(-50%);
           background-color: #2ed573;
           color: #fffcee;
           font-weight: bold;
