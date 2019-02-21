@@ -3,6 +3,7 @@
   const $pointBar = pointBar.create();
   const $cardsWrapper = createCardsWrapper();
   const createMemoryCard = MemoryCard.create();
+  const $renderGameButton = gameButton.render();
 
   const $CardCsharp = createMemoryCard({
     src: "img/icon-c.png",
@@ -32,4 +33,5 @@
 
   $root.insertAdjacentHTML("afterbegin", $pointBar);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
+  $root.insertAdjacentHTML("beforeend", $renderGameButton);
 })();
