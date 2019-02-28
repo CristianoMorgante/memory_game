@@ -21,7 +21,7 @@ const gameButton = (function() {
           font-size: 1.05em;
           cursor: pointer;
           box-shadow: 0 4px 8px #3a4042;
-          transition: opacity 200ms linear, transform 200ms linear;                         
+          transition: opacity 300ms linear, transform 300ms linear;                         
         }
 
         .game-button.-hidden {

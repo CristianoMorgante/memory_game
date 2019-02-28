@@ -1,11 +1,8 @@
 const layerStart = (function() {
   const module = {};
   module.handleClick = $component => {
-    const $gameButton = $component.querySelector(".game-button");
-    const $transparentLayer = $component.querySelector(".transparent-layer");
-
-    $gameButton.classList.add("-hidden");
-    $transparentLayer.classList.add("-hidden");
+    const $children = $component.querySelectorAll("*");
+    $children.forEach($item => $item.classList.add("-hidden"));
   };
 
   module.handleTransitionEnd = (event, $component) => {

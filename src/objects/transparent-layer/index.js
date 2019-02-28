@@ -10,7 +10,7 @@ const transparentLayer = (function() {
          height:100vh;
          position:absolute;
          top:0;
-         transition: opacity 200ms linear;
+         transition: opacity 300ms linear;
     }
 
     .transparent-layer.-hidden {
