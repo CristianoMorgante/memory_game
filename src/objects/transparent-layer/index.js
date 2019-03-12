@@ -1,4 +1,4 @@
-const transparentLayer = (function() {
+const transparentLayer = (() => {
   const module = {};
   module._style = () => {
     const $head = document.querySelector("head");

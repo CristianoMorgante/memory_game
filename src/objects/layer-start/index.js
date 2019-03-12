@@ -1,4 +1,4 @@
-const layerStart = (function() {
+const layerStart = (() => {
   const module = {};
   module.handleClick = $component => {
     const $children = $component.querySelectorAll("*");

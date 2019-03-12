@@ -1,4 +1,4 @@
-(function() {
+(() => {
   const $root = document.querySelector("#root");
   const $pointBar = pointBar.create();
   const $cardsWrapper = createCardsWrapper();

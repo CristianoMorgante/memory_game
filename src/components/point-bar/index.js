@@ -1,7 +1,7 @@
-const pointBar = (function() {
+const pointBar = (() => {
   const module = {};
 
-  module._style = function() {
+  module._style = () => {
     const $head = document.querySelector("head");
     const $style = document.createElement("style");
     $style.textContent = `
