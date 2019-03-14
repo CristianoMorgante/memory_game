@@ -1,4 +1,4 @@
-const flatButton = (function() {
+const flatButton = (() => {
   const module = {};
 
   module._id = 0;
