@@ -7,6 +7,7 @@ const labelCollabcode = (() => {
 
     $style.textContent = `
         .label-collabcode {
+            display: block; /* necessário para a margin-top do label no input-collabcode funcionar*/
             color: rgba(58, 64, 66, .5);
             font-size: 16px;
         }
