@@ -1,7 +1,7 @@
 {
-  "name": "Memory_Game",
+  "name": "memory_game",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.html",
   "dependencies": {
     "live-server": "^1.2.1"
   },
