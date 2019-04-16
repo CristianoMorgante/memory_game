@@ -19,6 +19,7 @@
       "$$head.insertAdjacentElement('beforeend', $$style);",
       "}",
       "module.render = ($content) => {",
+      "module._style();",
       "",
       "return ${2:`${$content}}`",
       "};",
