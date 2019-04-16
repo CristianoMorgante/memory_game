@@ -14,6 +14,7 @@ const inputCollabcode = (() => {
             font-weight: bold;
             border-bottom: 2px solid rgba(58, 64, 66, .5);
             padding: 12px 0;
+            background-color: white
             
         }
         /*Seletor + verifica se existe um input antes do label, se existir a margin é colocada no label*/
