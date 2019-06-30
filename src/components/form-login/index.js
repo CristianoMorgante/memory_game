@@ -8,8 +8,8 @@ const formLogin = (() => {
     $style.textContent = `
         .form-login{
             padding: 0 35px 40px;
-        }
-    
+            position: relative
+        }    
     `;
     $head.insertAdjacentElement("beforeend", $style);
   };
@@ -19,18 +19,25 @@ const formLogin = (() => {
     const $inputEmail = inputCollabcode.render({ type: "email", placeholder: "example@email.com" });
 
     const $labelPassword = labelCollabcode.render("Password");
-    const $inputPassword = inputCollabcode.render({ type: "password", placeholder: "........" });
+    const $inputPassword = inputCollabcode.render({
+      id: "password",
+      type: "password",
+      placeholder: "........"
+    });
 
     const $linkCollab = linkCollab.render({ href: "#", content: "Forget password?" });
 
-    const $btn = btnCollabcode.render("Login");
+    const $eyeCollab = eyeCollab.render({ attrFor: "password" });
+
+    const $btn = btnCollabcode.render({ content: "Login", path: "game" });
 
     return `
-     ${$labelEmail}
+        ${$labelEmail}
         ${$inputEmail}
 
-        ${$labelPassword}
-        ${$inputPassword}
+        ${$labelPassword}        
+        ${$inputPassword}   
+        ${$eyeCollab}    
 
         ${$linkCollab}
 

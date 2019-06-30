@@ -7,7 +7,8 @@ const formSignup = (() => {
     $style.textContent = `
         .form-signup {
             padding: 0 35px 40px;
-        }
+            position:relative
+        }        
     `;
     $head.insertAdjacentElement("beforeend", $style);
   };
@@ -19,16 +20,19 @@ const formSignup = (() => {
     const $labelEmail = labelCollabcode.render("E-mail");
     const $inputEmail = inputCollabcode.render({ type: "email", placeholder: "example@email.com" });
 
+    const $eyeCollab = eyeCollab.render({ attrFor: "password" });
+
     const $labelPassword = labelCollabcode.render("Password");
     const $inputPassword = inputCollabcode.render({ type: "password", placeholder: "........" });
 
     const $labelConfirmPass = labelCollabcode.render("Confirm password");
     const $inputConfirmPassword = inputCollabcode.render({
+      id: "password",
       type: "password",
       placeholder: "........"
     });
 
-    const $btn = btnCollabcode.render("Signup");
+    const $btn = btnCollabcode.render({ content: "Signup", path: "login" });
 
     return `
         ${$labelUsername}
@@ -37,11 +41,17 @@ const formSignup = (() => {
         ${$labelEmail}
         ${$inputEmail}
 
-        ${$labelPassword}
+        ${$labelPassword}               
         ${$inputPassword}
+        ${$eyeCollab} 
+        
+        
 
-        ${$labelConfirmPass}
+        ${$labelConfirmPass}        
         ${$inputConfirmPassword}
+        ${$eyeCollab}
+        
+        
 
         ${$btn}
     `;
