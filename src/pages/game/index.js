@@ -4,6 +4,7 @@ const game = () => {
   const $cardsWrapper = createCardsWrapper();
   const createMemoryCard = MemoryCard.create();
   const $layerStart = layerStart.render("start");
+  const $backButton = btnCollabcode.render({ content: "Voltar", path: "login" });
 
   const $CardCsharp = createMemoryCard({
     src: "img/icon-c.png",
@@ -34,4 +35,5 @@ const game = () => {
   $root.insertAdjacentHTML("afterbegin", $pointBar);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
   $root.insertAdjacentHTML("beforeend", $layerStart);
+  $root.insertAdjacentHTML("beforeend", $backButton);
 };

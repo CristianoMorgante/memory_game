@@ -19,6 +19,11 @@ const btnCollabcode = (() => {
         .input-collabcode + .btn-collabcode {
             margin-top: 45px;
         }
+        .cards-wrapper + .btn-collabcode {          
+          margin: 30px 50%;
+          transform: translateX(-50%);
+          width: 85vw;          
+        }
     `;
 
     $head.insertAdjacentElement("beforeend", $style);
