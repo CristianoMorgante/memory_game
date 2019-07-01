@@ -8,7 +8,7 @@ function createCardsWrapper() {
   .cards-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content:  space-around;
+    justify-content: space-around;
     padding-top: 10px;
   }
 

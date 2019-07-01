@@ -17,12 +17,8 @@ const MemoryCard = (function() {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    position: relative;
-    margin: 8px 8px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);    
     position:absolute;
-
-
   }
 
   .memory-card.-front .card,
