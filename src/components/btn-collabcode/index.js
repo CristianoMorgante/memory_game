@@ -45,14 +45,32 @@ const btnCollabcode = (() => {
   //   }
   // };
 
+  module._loginVerify = () => {
+    const $email = document.querySelector("input[type='email']").value;
+    const $validationEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    const $password = document.querySelector("input[type='password']").value;
+    const $validationPassword = /^[^\W_]{8}$/;
+
+    if ($validationEmail.test($email) && $validationPassword.test($password) === true) {
+      return true;
+    } else {
+      console.log("insira login");
+      document.querySelector("input[type='email']").focus();
+    }
+  };
+
   module.handleClick = (event, path) => {
     // module._verifyEmail();
     // module._verifypassword();
+    module._loginVerify();
     event.preventDefault();
 
     // if (module._verifyEmail() && module._verifyPassword()) {
-    location.hash = `#/${path}`;
-    location.reload();
+    if (module._loginVerify() === true) {
+      location.hash = `#/${path}`;
+      location.reload();
+    }
     // }
   };
 
