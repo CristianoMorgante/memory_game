@@ -7,16 +7,17 @@ const logoCollabcode = (() => {
 
     $style.textContent = `
       .logo-collabcode {
-            display: inline-block;
-            width: 175px;
-            border: solid 40px #fff;
-            border-radius: 50%;
-            background-color: #fff
+        display: inline-block;
+        width: 175px;
+        border: solid 40px #fff;
+        border-radius: 50%;
+        background-color: #fff
       }
+      
       .logo-collabcode > .logo {
-          width: 175px;
+        width: 175px;
       }
-      `;
+    `;
     $head.insertAdjacentElement("beforeend", $style);
   };
 
@@ -24,10 +25,11 @@ const logoCollabcode = (() => {
     module._style();
 
     return `
-    <figure class="logo-collabcode">
-        <img class="logo" src="/img/icon-collabcode.png">
-    </figure>`;
+      <figure class="logo-collabcode">
+          <img class="logo" src="/img/icon-collabcode.png">
+      </figure>`;
   };
+
   return {
     render: module.render
   };

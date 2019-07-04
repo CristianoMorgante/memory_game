@@ -4,17 +4,18 @@ function createCardsWrapper() {
 
   const $head = document.querySelector("head");
   const $style = document.createElement("style");
-  $style.textContent = `
-  .cards-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding-top: 10px;
-  }
 
-  .cards-wrapper > .memory-card {
-    margin-bottom: 10px;
-  }  
+  $style.textContent = `
+    .cards-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding-top: 10px;
+    }
+
+    .cards-wrapper > .memory-card {
+      margin-bottom: 10px;
+    }  
   `;
 
   $head.insertBefore($style, null);

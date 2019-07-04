@@ -6,7 +6,7 @@ const linkCollab = (() => {
     const $style = document.createElement("style");
 
     $style.textContent = `
-      .link-collab{
+      .link-collab {
         display: block;
         color: #3a4042;
         text-decoration: none;
@@ -22,8 +22,13 @@ const linkCollab = (() => {
 
   module.render = ({ href, content }) => {
     module._style();
+
     return `
-    <a class="link-collab" href="${href}">${content}</a>
+      <a 
+        class="link-collab" 
+        href="${href}">
+        ${content}
+      </a>
     `;
   };
 

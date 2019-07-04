@@ -16,8 +16,13 @@ const logoWrapper = (() => {
 
   module.render = (...$children) => {
     module._style();
-    return `<div class="logoWrapper">${$children.join("")}</div>
-  `;
+
+    return `
+      <div 
+        class="logoWrapper">  
+        ${$children.join("")}
+      </div>
+    `;
   };
 
   return {

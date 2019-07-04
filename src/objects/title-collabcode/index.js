@@ -7,18 +7,25 @@ const titleCollabcode = (() => {
 
     $style.textContent = `
       .title-collabcode {
-          color: #f25a70;
-          font-size: 24px;
-          letter-spacing: 0.6px
+        color: #f25a70;
+        font-size: 24px;
+        letter-spacing: 0.6px
       }
-      `;
+    `;
     $head.insertAdjacentElement("beforeend", $style);
   };
 
   module.render = content => {
     module._style();
-    return `<h1 class="title-collabcode">${content}</h1>`;
+
+    return `
+      <h1 
+        class="title-collabcode">
+        ${content}
+      </h1>
+    `;
   };
+
   return {
     render: module.render
   };

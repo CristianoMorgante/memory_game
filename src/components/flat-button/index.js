@@ -31,8 +31,8 @@ const flatButton = (() => {
     module._style(active);
     return `<button 
               class="flat-button-${module._id}"
-              onClick="flatButton.handleClick('${path}')"
-              >${content}</button>`;
+              onClick="flatButton.handleClick('${path}')">
+              ${content}</button>`;
   };
 
   return {

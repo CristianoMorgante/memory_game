@@ -1,5 +1,6 @@
 const layerStart = (() => {
   const module = {};
+
   module.handleClick = $component => {
     const $children = $component.querySelectorAll("*");
     $children.forEach($item => $item.classList.add("-hidden"));
@@ -16,10 +17,13 @@ const layerStart = (() => {
     const $gameButton = gameButton.render(content);
 
     return `
-        <div class="layer-start" onClick="layerStart.handleClick(this)" onTransitionEnd="layerStart.handleTransitionEnd(event, this)">
-            ${$transparentLayer}
-            ${$gameButton}
-        </div>
+      <div 
+        class="layer-start" 
+        onClick="layerStart.handleClick(this)" 
+        onTransitionEnd="layerStart.handleTransitionEnd(event, this)">
+        ${$transparentLayer}
+        ${$gameButton}
+      </div>
     `;
   };
   return {
