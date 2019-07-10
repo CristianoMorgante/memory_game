@@ -1,8 +1,8 @@
 const signup = () => {
   const $root = document.querySelector("#root");
-  const $logoWrapper = logoWrapper.render($logoCollabcode, $titleCollabcode);
   const $logoCollabcode = logoCollabcode.render();
   const $titleCollabcode = titleCollabcode.render("Welcome");
+  const $logoWrapper = logoWrapper.render($logoCollabcode, $titleCollabcode);
   const $formSignup = formSignup.render();
   const $loginButton = flatButton.render("Log in", false, "login");
   const $signupButton = flatButton.render("Sign up", true, "signup");

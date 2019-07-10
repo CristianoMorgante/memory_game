@@ -26,59 +26,75 @@ const btnCollabcode = (() => {
         transform: translateX(-50%);
         width: 85vw;          
       }
+      .layer-start + .btn-collabcode {
+        display: none
+      }
     `;
     $head.insertAdjacentElement("beforeend", $style);
   };
 
-  // module._verifyEmail = () => {
-  //   const $email = document.querySelector("input[type='email']").value;
-  //   const $validationEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-  //   if ($validationEmail.test($email)) {
-  //   }
-  // };
+  module._verifyEmail = () => {
+    const $messageAlert = document.querySelector("#email");
+    const email = document.querySelector("input[type='email']").value;
+    const validationEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-  // module._verifypassword = () => {
-  //   const $password = document.querySelector("input[type='password']").value;
-  //   const $validationPassword = /^[^\W_]{8}$/;
-
-  //   if ($validationPassword.test($password)) {
-  //   }
-  // };
-
-  module._loginVerify = () => {
-    const $email = document.querySelector("input[type='email']").value;
-    const $validationEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-    const $password = document.querySelector("input[type='password']").value;
-    const $validationPassword = /^[^\W_]{8}$/;
-
-    if ($validationEmail.test($email) && $validationPassword.test($password) === true) {
+    if (validationEmail.test(email)) {
+      $messageAlert.classList.remove("-visible");
       return true;
     } else {
-      console.log("insira login");
+      $messageAlert.classList.add("-visible");
       document.querySelector("input[type='email']").focus();
+      return false;
     }
   };
 
-  module.handleClick = (event, path) => {
-    // module._verifyEmail();
-    // module._verifypassword();
-    module._loginVerify();
+  module._verifypassword = () => {
+    const $messageAlert = document.querySelector("#password");
+    const password = document.querySelector("input[type='password']").value;
+    const validationPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+    const email = document.querySelector("input[type='email']").value;
+    const validationEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    if (validationEmail.test(email) && password === "") {
+      $messageAlert.classList.remove("-visible");
+      if (validationPassword.test(password)) {
+        $messageAlert.classList.remove("-visible");
+        return true;
+      } else {
+        $messageAlert.classList.add("-visible");
+        document.querySelector("input[type='password']").focus();
+        return false;
+      }
+    }
+    return true;
+  };
+
+  module.handleClick = function(event, path, id) {
     event.preventDefault();
 
-    // if (module._verifyEmail() && module._verifyPassword()) {
-    if (module._loginVerify() === true) {
+    const $backButton = document.querySelector("#backButton");
+
+    if ($backButton) {
       location.hash = `#/${path}`;
       location.reload();
+    } else {
+      const verifyEmail = module._verifyEmail();
+      const verifyPassword = module._verifypassword();
+
+      if (verifyEmail && verifyPassword) {
+        location.hash = `#/${path}`;
+        location.reload();
+      }
     }
-    // }
   };
 
-  module.render = ({ content = "", path = "" }) => {
+  module.render = ({ content = "", path = "", id = "" }) => {
     module._style();
 
     return `
       <input 
+        id="${id}"       
         class="btn-collabcode" 
         type="submit" 
         value="${content}"

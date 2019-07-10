@@ -17,7 +17,7 @@ const inputCollabcode = (() => {
           background-color: white;          
       }
       /*Seletor + verifica se existe um input antes do label, se existir a margin é colocada no label*/
-      .input-collabcode + .label-collabcode { 
+      .message-alert + .label-collabcode { 
           margin-top: 30px;
       }
     `;

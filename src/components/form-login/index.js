@@ -28,6 +28,15 @@ const formLogin = (() => {
       placeholder: "........"
     });
 
+    const $messageAlertEmail = messageAlert.render({
+      content: "Digite seu melhor e-mail",
+      id: "email"
+    });
+    const $messageAlertPassword = messageAlert.render({
+      content: "Digite sua senha",
+      id: "password"
+    });
+
     const $linkCollab = linkCollab.render({ href: "#", content: "Forget password?" });
 
     const $eyeCollab = eyeCollab.render({ attrFor: "password" });
@@ -35,9 +44,11 @@ const formLogin = (() => {
     const $btn = btnCollabcode.render({ content: "Login", path: "game" });
 
     return `
+      ${$messageAlertEmail}
       ${$labelEmail}
       ${$inputEmail}
-
+      
+      ${$messageAlertPassword}
       ${$labelPassword}        
       ${$inputPassword}   
       ${$eyeCollab}    

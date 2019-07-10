@@ -4,7 +4,11 @@ const game = () => {
   const $cardsWrapper = createCardsWrapper();
   const createMemoryCard = MemoryCard.create();
   const $layerStart = layerStart.render("start");
-  const $backButton = btnCollabcode.render({ content: "Voltar", path: "login" });
+  const $backButton = btnCollabcode.render({
+    content: "Voltar",
+    path: "login",
+    id: "backButton"
+  });
 
   const $CardCsharp = createMemoryCard({
     src: "img/icon-c.png",
