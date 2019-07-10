@@ -12,13 +12,18 @@ const labelCollabcode = (() => {
         font-size: 16px;
       }
     `;
-
     $head.insertAdjacentElement("beforeend", $style);
   };
 
   module.render = (...content) => {
     module._style();
-    return `<label class="label-collabcode">${content.join("")}</label>`;
+
+    return `
+      <label 
+        class="label-collabcode">
+        ${content.join("")}
+      </label>
+    `;
   };
 
   return {

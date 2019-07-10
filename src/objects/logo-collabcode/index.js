@@ -26,7 +26,9 @@ const logoCollabcode = (() => {
 
     return `
       <figure class="logo-collabcode">
-          <img class="logo" src="/img/icon-collabcode.png">
+          <img 
+            class="logo" 
+            src="./img/icon-collabcode.png">
       </figure>`;
   };
 

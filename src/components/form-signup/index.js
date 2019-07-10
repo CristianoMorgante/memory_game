@@ -41,15 +41,27 @@ const formSignup = (() => {
       placeholder: "........"
     });
 
+    const $messageAlertEmail = messageAlert.render({
+      content: "Digite seu melhor e-mail",
+      id: "email"
+    });
+    const $messageAlertPassword = messageAlert.render({
+      content: "Digite sua senha",
+      id: "password"
+    });
+
     const $btn = btnCollabcode.render({ content: "Signup", path: "login" });
 
     return `
+      
       ${$labelUsername}
       ${$inputUsername}
-
+      
+      ${$messageAlertEmail}
       ${$labelEmail}
       ${$inputEmail}
 
+      ${$messageAlertPassword}
       ${$labelPassword}               
       ${$inputPassword}
       ${$eyeCollab}         
@@ -63,8 +75,17 @@ const formSignup = (() => {
   };
   module.render = () => {
     module._style();
-    return `<form class="form-signup" action="#" method="POST">${module._children()}</form>`;
+
+    return `
+      <form 
+        class="form-signup" 
+        action="#" 
+        method="POST">
+        ${module._children()}
+      </form>
+    `;
   };
+
   return {
     render: module.render
   };

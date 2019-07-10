@@ -17,7 +17,6 @@ function createCardsWrapper() {
       margin-bottom: 10px;
     }  
   `;
-
   $head.insertBefore($style, null);
 
   $cardsWrapper.addEventListener("click", () => {

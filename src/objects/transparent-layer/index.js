@@ -25,7 +25,9 @@ const transparentLayer = (() => {
   module.render = () => {
     module._style();
 
-    return `<div class="transparent-layer"></div>`;
+    return `
+      <div class="transparent-layer"></div>
+    `;
   };
 
   return {

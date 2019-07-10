@@ -6,21 +6,21 @@ const messageAlert = (() => {
     const $style = document.createElement("style");
 
     $style.textContent = `
-        .message-alert {
-            display: none;
-            color: #f25a70;
-            font-size: 24px;
-            text-align: center;
-            padding: 10px;            
-        }
+      .message-alert {
+        display: none;
+        color: #f25a70;
+        font-size: 24px;
+        text-align: center;
+        padding: 10px;            
+      }
 
-        .message-alert.-visible {
-            display: block;            
-        }
+      .message-alert.-visible {
+        display: block;            
+      }
 
-        .message-alert.-visible + .label-collabcode {
-            margin: 0;
-        }
+      .message-alert.-visible + .label-collabcode {
+        margin: 0;
+      }
     `;
     $head.insertAdjacentElement("beforeend", $style);
   };

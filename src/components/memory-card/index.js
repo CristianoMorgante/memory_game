@@ -71,7 +71,6 @@ const MemoryCard = (() => {
         transform: translateY(-12px);
       }
     `;
-
     $head.insertBefore($style, null);
 
     return ({ src, alt }) => `
@@ -80,15 +79,13 @@ const MemoryCard = (() => {
           <img
             class="icon"
             src= "${src}"
-            alt="${alt}"
-            />
+            alt="${alt}"/>
         </div>
         <div class='card'>
           <img
             class="icon "
             src= "img/icon-collabcode.png"
-            alt="Gueio mascote da CollabCode"
-            />
+            alt="Gueio mascote da CollabCode"/>
         </div>
       </article>
     `;
@@ -135,6 +132,7 @@ const MemoryCard = (() => {
       }
     }
   };
+
   return {
     create: module.create,
     handleClick: module.handleClick

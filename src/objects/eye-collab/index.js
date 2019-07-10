@@ -16,25 +16,26 @@ const eyeCollab = (() => {
         transition: opacity 200ms linear;          
         margin-left: auto;
         transform: translateY(-140%) ;
-        cursor: pointer
+        cursor: pointer;
       }
 
       .eye-collab.-active{
-            opacity: 1;        
+        opacity: 1;        
       }
     `;
-
     $head.insertAdjacentElement("beforeend", $style);
   };
 
   module.render = ({ attrFor = "" }) => {
     module._style();
+
     return `
-        <label 
+      <label 
         for="${attrFor}"
         class="eye-collab" 
         onClick="eyeCollab.handleClick.bind(this)()">
-        Mostrar senha</label>
+        Mostrar senha
+      </label>
     `;
   };
 

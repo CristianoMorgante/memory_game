@@ -16,7 +16,6 @@ const linkCollab = (() => {
         margin: 40px auto 60px;
       }
     `;
-
     $head.insertAdjacentElement("beforeend", $style);
   };
 

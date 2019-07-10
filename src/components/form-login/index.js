@@ -61,8 +61,16 @@ const formLogin = (() => {
 
   module.render = () => {
     module._style();
-    return `<form class="form-login" action="#" method="POST">${module._children()}</form>`;
+
+    return `
+      <form 
+        class="form-login" 
+        action="#" 
+        method="POST">
+        ${module._children()}
+      </form>`;
   };
+
   return {
     render: module.render
   };

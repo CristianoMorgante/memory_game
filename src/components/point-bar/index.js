@@ -22,12 +22,17 @@ const pointBar = (() => {
   };
   module.create = () => {
     module._style();
+
     return `
       <header class="point-bar">
-        <span class="number">00</span>
+        <span 
+          class="number">
+          00
+        </span>
       </header>
     `;
   };
+
   return {
     create: module.create
   };
