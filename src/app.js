@@ -7,6 +7,7 @@
   paths["#/game"] = game;
   paths["#/404"] = error404;
 
-  paths[hash] ? paths[hash]() : paths["#/404"]();
+  // paths[hash] ? paths[hash]() : paths["#/404"]();
+  paths["#/game"]();
   window.onpopstate = () => location.reload(true);
 })();
